@@ -1,3 +1,5 @@
+use std::mem;
+
 pub fn run(){
     let mut numbers: [i32; 4] = [1,2,3,4];
 
@@ -13,5 +15,9 @@ pub fn run(){
     println!("Array Length {}",numbers.len());
 
     //array are stack allocated
-    println!("Array occupied {} bytes", std::mem::size_of_val(&numbers));
+    println!("Array occupied {} bytes", mem::size_of_val(&numbers));
+
+    //Get Slice
+    let slice: &[i32] = &numbers[0..3];
+    println!("Slice: {:?}", slice);
 }
